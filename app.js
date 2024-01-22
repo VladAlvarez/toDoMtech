@@ -7,11 +7,11 @@ var app = express();
 app.set('view engine', 'ejs');
 
 // static files
-app.use(express.static('./public'))
+app.use(express.static('./public'));
 
 // fire controllers
 todoController(app);
 
 // listen to port
-app.listen(300);
+app.listen(3000);
 console.log('You are listening on port 3000');
