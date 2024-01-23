@@ -1,4 +1,16 @@
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+// connecting to database via mongoose
+mongoose.connect('mongodb+srv://moronivalvarez:test@todo.arpcwvf.mongodb.net/?retryWrites=true&w=majority')
+
+// schema for data, super simple just the property item and the string (what the user entered)
+var todoSchema = new mongoose.Schema({
+    item: String
+});
+
+var Todo = mongoose.model('Todo', todoSchema);
+var itemOne = Todo({item: 'get flowers'}).save()
 
 var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick a kid'}];
 // middleware for POST function
