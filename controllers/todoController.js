@@ -28,20 +28,24 @@ module.exports = function(app){
         } 
         });
 
-    // app.post('/todo', urlencodedParser, function(req, res){
-    //     // get data from view and add to mongodb
-    //     var newTodo = Todo(req.body).save(function(err, data){
-    //         if (err) throw err;
-    //         res.json(data);
-    //     })
-    // });
+    app.post('/todo', urlencodedParser, async(req, res) => {
+        // get data from view and add to mongodb
+        try {
+        var newTodo = Todo(req.body).save();
+        res.json(newTodo);
+        } catch (err){
+            console.log(err)
+        } 
+    });
 
-    // app.delete('/todo/:item', function(req, res){
-    //     // deleteing requested item form mongodb
-    //     Todo.find({item:req.params.item.replace(/\-/g, " ")}).remove(function(err, data){
-    //         if (err) throw err;
-    //         res.json(data);
-    //     });
-    // });
+    app.delete('/todo/:item', async(req, res) => {
+        // deleteing requested item form mongodb
+        try {
+        const data = await Todo.find({item:req.params.item.replace(/-/g, " ")}).remove();
+        res.json(data);
+        } catch (err){
+            console.log(err);
+        }
+        });
 
 }
