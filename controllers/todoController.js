@@ -26,7 +26,7 @@ module.exports = function(app){
         } catch (err){
             console.log(err)
         } 
-        });
+    });
 
     app.post('/todo', urlencodedParser, async(req, res) => {
         // get data from view and add to mongodb
@@ -41,11 +41,11 @@ module.exports = function(app){
     app.delete('/todo/:item', async(req, res) => {
         // deleteing requested item form mongodb
         try {
-        const data = await Todo.find({item:req.params.item.replace(/-/g, " ")}).remove();
+        const data = await Todo.find({item: req.params.item.replace(/\-/g, " ")}).deleteOne();
         res.json(data);
         } catch (err){
             console.log(err);
         }
-        });
+    });
 
 }
