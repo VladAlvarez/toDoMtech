@@ -18,28 +18,30 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 // all the "controllers are held in this function like retreiving items, adding new items and deleting items."
 module.exports = function(app){
 
-    app.get('/todo', function(req, res){
+    app.get('/todo', async (req, res) => {
         // get data from mongodb and passing it to view
-        Todo.find({}, function(err, data){
-            if (err) throw err;
+        try {
+        const data = await Todo.find({});
             res.render('todo', {todos: data});
+        } catch (err){
+            console.log(err)
+        } 
         });
-    });
 
-    app.post('/todo', urlencodedParser, function(req, res){
-        // get data from view and add to mongodb
-        var newTodo = Todo(req.body).save(function(err, data){
-            if (err) throw err;
-            res.json(data);
-        })
-    });
+    // app.post('/todo', urlencodedParser, function(req, res){
+    //     // get data from view and add to mongodb
+    //     var newTodo = Todo(req.body).save(function(err, data){
+    //         if (err) throw err;
+    //         res.json(data);
+    //     })
+    // });
 
-    app.delete('/todo/:item', function(req, res){
-        // deleteing requested item form mongodb
-        Todo.find({item:req.params.item.replace(/\-/g, " ")}).remove(function(err, data){
-            if (err) throw err;
-            res.json(data);
-        });
-    });
+    // app.delete('/todo/:item', function(req, res){
+    //     // deleteing requested item form mongodb
+    //     Todo.find({item:req.params.item.replace(/\-/g, " ")}).remove(function(err, data){
+    //         if (err) throw err;
+    //         res.json(data);
+    //     });
+    // });
 
 }
