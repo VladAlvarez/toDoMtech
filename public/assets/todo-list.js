@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    // adding a to do list item
     $('form').on('submit', function(){
 
         // grabbing what todo item was entered and turning it into a value
@@ -17,8 +18,22 @@ $(document).ready(function(){
                 location.reload();
             }
         });
-
+        
         return false;
+        
+    });
+    
+    // deleting a to do list item
+    $('li').on('click', function(){
+        var item = $(this).text().replace(/ /g, "-");
+        $.ajax({
+            type: 'DELETE',
+            url: '/todo/' + item,
+            success: function(data){
+                // can do something with the data via front-end stuff
+                location.reload();
+            }
+        });
+    });
 
-    })
-})
+});
