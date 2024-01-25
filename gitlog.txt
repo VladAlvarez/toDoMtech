@@ -1,0 +1,16 @@
+f155404 - Vlad Alvarez, 3 days ago : got DELETE function to work async
+457adfe - Vlad Alvarez, 3 days ago : fixed POST to async catch
+198312d - Vlad Alvarez, 3 days ago : forgot mongoose doesn't accept throwbacks, added async catch
+16f914d - Vlad Alvarez, 3 days ago : connected post and delete functions to mongodb
+9836bb0 - Vlad Alvarez, 3 days ago : added mongodb and  mongoos
+08868f6 - Vlad Alvarez, 3 days ago : added DELETE function
+f80f663 - Vlad Alvarez, 3 days ago : added all styles, POST function
+5806761 - Vlad Alvarez, 3 days ago : dynamic li added
+aff4e33 - Vlad Alvarez, 3 days ago : added ejs page, fixed port number to actually 3000
+5dc5f84 - Vlad Alvarez, 3 days ago : set up get, post, and delete routes
+ad6a57e - Vlad Alvarez, 3 days ago : created todoControllers and linked it to app.js
+7eb7280 - Vlad Alvarez, 3 days ago : app.js setup, set to port 3000
+a0d655d - Vlad Alvarez, 3 days ago : added node modules, express, body-parser
+1e17761 - Vlad Alvarez, 3 days ago : change files
+a5e5d1d - Vlad Alvarez, 3 days ago : test
+76c7dd6 - Vlad Alvarez, 3 days ago : first commit
