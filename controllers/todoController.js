@@ -18,11 +18,11 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 // all the "controllers are held in this function like retreiving items, adding new items and deleting items."
 module.exports = function(app){
 
-    app.get('/todo', async (req, res) => {
+    app.get('/', async (req, res) => {
         // get data from mongodb and passing it to view
         try {
         const data = await Todo.find({});
-            res.render('todo', {todos: data});
+            res.render('index', {todos: data});
         } catch (err){
             console.log(err)
         } 
